@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta36.dtd" >
-   <PATCH nodename="C:\Users\inada\Documents\GitHub\DMX_LED_POD\Main\_ROOT.v4p" scrollx="0" scrolly="546" systemname="callmenames" filename="C:\Users\inada\Desktop\dmx\callmenames.v4p" locked="0">
+   <PATCH nodename="C:\Users\inada\Documents\GitHub\DMX_LED_POD\Main\_ROOT.v4p" scrollx="0" scrolly="-171" systemname="callmenames" filename="C:\Users\inada\Desktop\dmx\callmenames.v4p" locked="0">
    <BOUNDS type="Window" left="-294" top="1036" width="10094" height="7406">
    </BOUNDS>
    <NODE systemname="DMX (Network Artnet Sender)" filename="" nodename="DMX (Network Artnet Sender)" componentmode="Hidden" id="0">
@@ -481,5 +481,65 @@
    <LINK srcnodeid="138" srcpinname="File Count" dstnodeid="182" dstpinname="Input 1">
    </LINK>
    <LINK srcnodeid="182" srcpinname="Output" dstnodeid="141" dstpinname="Maximum">
+   </LINK>
+   <NODE systemname="OSCDecoder (Network)" nodename="OSCDecoder (Network)" componentmode="Hidden" id="183">
+   <BOUNDS type="Node" left="3920" top="1939" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Address" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="UDP (Network Server)" nodename="UDP (Network Server)" componentmode="Hidden" id="184">
+   <BOUNDS type="Node" left="4018" top="910" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Local Port" slicecount="1" values="8000">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="184" srcpinname="Output" dstnodeid="183" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="185">
+   <BOUNDS type="Box" left="5124" top="1323" width="693" height="210">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5124" top="1323" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="185" srcpinname="Output String" dstnodeid="183" dstpinname="Address">
+   </LINK>
+   <NODE systemname="AsString (Raw)" nodename="AsString (Raw)" componentmode="Hidden" id="186">
+   <BOUNDS type="Node" left="4326" top="1365" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="184" srcpinname="Output" dstnodeid="186" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="187">
+   <BOUNDS type="Box" left="5516" top="903" width="693" height="210">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5516" top="903" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Multiline">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="186" srcpinname="Output" dstnodeid="187" dstpinname="Input String">
    </LINK>
    </PATCH>
